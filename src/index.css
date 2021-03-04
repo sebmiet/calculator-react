@@ -1,13 +1,66 @@
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+div#root{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: auto;
+  background: rgb(131,58,180);
+  background: radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(209,39,83,1) 32%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+div.calculator-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 70vh;
+  min-width: auto;
+  background: #000000;
+  border-radius: 8px;
+}
+div.keyboard-container{
+  max-width: 420px;
+  display: flex;
+  padding: 10px 10px;
+}
+div.keyboard-keys-num{
+  width: 60%;
+}
+div.keyboard-keys-fun{
+  width: 40%;
+}
+button{
+  width: 80px;
+  height: 80px;
+  background: darkslateblue;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 4px;
+  margin: 2px
+}
+div.display-container{
+  display: flex;
+  flex-direction: column;
+  /* min-height: 100px; */
+  padding: 5px 5px;
+ 
+}
+div.display-result{
+  display: flex;
+  font-size: 3.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #e2e2e2;
+  background: red;
+  justify-content: flex-end;
+  align-items: flex-end;
 }

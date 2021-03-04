@@ -2,12 +2,12 @@ import React from 'react'
 
 export const Display = () => {
     return (
-        <div>
-            <div>
+        <div className="display-container">
+            <div className="display-history">
                 <p>input history</p>
             </div>
-            <div>
-                <h3>RESULT</h3>
+            <div className="display-result">
+                <h3>1234567890</h3>
             </div>
         </div>
     )
