@@ -2,43 +2,51 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-div#root{
+div#root {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   min-width: auto;
-  background: rgb(131,58,180);
-  background: radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(209,39,83,1) 32%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+  background: rgb(131, 58, 180);
+  background: radial-gradient(
+    circle,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(209, 39, 83, 1) 32%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
 }
 
-div.calculator-container{
+div.calculator-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 70vh;
+  max-height: 70vh;
   min-width: auto;
-  background: #000000;
+  max-width: 440px;
+  background: #888888;
   border-radius: 8px;
+  box-shadow: 8px 8px 8px black;
 }
-div.keyboard-container{
+div.keyboard-container {
   max-width: 420px;
   display: flex;
   padding: 10px 10px;
 }
-div.keyboard-keys-num{
+div.keyboard-keys-num {
   width: 60%;
 }
-div.keyboard-keys-fun{
+div.keyboard-keys-fun {
   width: 40%;
 }
-button{
+button {
   width: 80px;
   height: 80px;
   background: darkslateblue;
@@ -46,21 +54,55 @@ button{
   font-size: 1.5rem;
   border: none;
   border-radius: 4px;
-  margin: 2px
+  margin: 2px;
+  box-shadow: 2px 2px 2px black;
+  transition: 0.9s;
 }
-div.display-container{
+button:hover {
+  background: rgb(101, 96, 129);
+}
+div.display-container {
   display: flex;
+  max-height: 200px;
   flex-direction: column;
   /* min-height: 100px; */
-  padding: 5px 5px;
- 
+  padding: 15px 15px;
 }
-div.display-result{
+div.display-result {
   display: flex;
-  font-size: 3.5rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #e2e2e2;
-  background: red;
+  background: #b3b692;
+  text-align: right;
   justify-content: flex-end;
-  align-items: flex-end;
+}
+.display-result > h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 80px;
+  font-weight: 300;
+  overflow-x: hidden;
+  color: #000000;
+}
+div.display-history {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  min-height: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  background: #b3b692;
+  text-align: right;
+  justify-content: flex-end;
+}
+.display-history > p {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  color: #000000;
+  overflow-x: hidden;
 }
