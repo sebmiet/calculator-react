@@ -15,14 +15,14 @@ const App = () => {
   };
 
   const handleFunButtons = (key) => {
-    // if (
-    //   history[history.length - 1] === "+" ||
-    //   history[history.length - 1] === "-" ||
-    //   history[history.length - 1] === "*" ||
-    //   history[history.length - 1] === "/"
-    // ) {
-    //   return;
-    // }
+    if (
+      history[history.length - 1] === "+" ||
+      history[history.length - 1] === "-" ||
+      history[history.length - 1] === "*" ||
+      history[history.length - 1] === "/"
+    ) {
+      return;
+    }
     //setResult(parseFloat(input));
     setHistory((history += key));
     setInput("");

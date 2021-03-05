@@ -5,42 +5,43 @@ export const Keyboard = ({
   handleNumButtons,
   setIsResult,
 }) => {
-  const numButtons = [9, 8, 7, 6, 5, 4, 3, 2, 1, "#", 0, "."].map(
+  const numButtons = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0, "."].map(
     (btnValue) => {
       return (
-        <button
+        <div
           key={btnValue}
           onClick={() => {
             handleNumButtons(btnValue);
             setIsResult(false);
           }}
-          className="keyboard-btns-num"
+          className={btnValue === 0 ? "keyboard-btns-num-zero" : "keyboard-btns-num"}
         >
           {btnValue}
-        </button>
+        </div>
       );
     }
   );
-  const funButtons = ["AC", "C", "+", "-", "*", "/", "=", "√"].map(
+
+  const funButtons = ["C", "CE",  "*", "/", "-", "+", "="].map(
     (btnValue) => {
       return (
-        <button
+        <div
           key={btnValue}
           onClick={() => {
             handleFunButtons(btnValue);
             setIsResult(true);
           }}
-          className="keyboard-btns-fun"
+          className={btnValue ==='=' ? "keyboard-btns-fun-equals" : "keyboard-btns-fun"}
         >
           {btnValue}
-        </button>
+        </div>
       );
     }
   );
   return (
     <div className="keyboard-container">
-      <div>{numButtons}</div>
-      <div>{funButtons}</div>
+      <div className="keyboard-btns-num-constainer">{numButtons}</div>
+      <div className="keyboard-btns-fun-constainer">{funButtons}</div>
     </div>
   );
 };

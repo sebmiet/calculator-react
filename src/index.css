@@ -1,10 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Electrolize&family=VT323&family=ZCOOL+QingKe+HuangYou&display=swap');
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family:Electrolize;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -27,62 +27,122 @@ div#root {
 div.calculator-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-height: 70vh;
-  min-width: auto;
-  max-width: 440px;
+  
+  /* max-height: 70vh; */
+  /* min-width: auto; */
+  max-width: 444px;
   background: #888888;
   border-radius: 8px;
   box-shadow: 8px 8px 8px black;
 }
 div.keyboard-container {
-  max-width: 420px;
+  min-width: 400px;
   display: flex;
   padding: 10px 10px;
+  justify-content: center;
+  align-items: center;
 }
-div.keyboard-keys-num {
-  width: 60%;
+div.keyboard-btns-num-constainer {
+  width: 252px;
+  display: flex;
+  flex-wrap: wrap;
 }
-div.keyboard-keys-fun {
-  width: 40%;
+.keyboard-btns-fun-constainer {
+  width: 172px;
+  display: flex; 
+  flex-wrap: wrap;
 }
-button {
+
+.keyboard-btns-num,.keyboard-btns-fun {
   width: 80px;
   height: 80px;
-  background: darkslateblue;
+  background: rgb(78, 75, 95);
   color: white;
   font-size: 1.5rem;
-  border: none;
   border-radius: 4px;
   margin: 2px;
   box-shadow: 2px 2px 2px black;
   transition: 0.9s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-button:hover {
+.keyboard-btns-fun:nth-child(1) {
+  background: rgb(219, 135, 0);
+}
+.keyboard-btns-fun:nth-child(1):hover {
+  background: rgb(255, 158, 1);
+}
+.keyboard-btns-fun:nth-child(2) {
+  background: rgb(175, 0, 0);
+}
+.keyboard-btns-fun:nth-child(2):hover {
+  background: rgb(224, 0, 0);
+}
+.keyboard-btns-num-zero{
+  min-width: 164px;
+  min-height: 80px;
+  background: rgb(78, 75, 95);
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 4px;
+  margin: 2px;
+  box-shadow: 2px 2px 2px black;
+  transition: 0.9s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.keyboard-btns-fun-equals{
+  min-width: 164px;
+  min-height: 80px;
+  background: rgb(19, 128, 19);
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 4px;
+  margin: 2px;
+  box-shadow: 2px 2px 2px black;
+  transition: 0.9s;
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  align-items: center;
+}
+.keyboard-btns-fun-equals:hover{
+  background: rgb(32, 153, 32);
+}
+button:hover,
+div.keyboard-btns-num:hover,
+div.keyboard-btns-fun:hover,
+div.keyboard-btns-num-zero:hover {
   background: rgb(101, 96, 129);
+  
 }
 div.display-container {
   display: flex;
   max-height: 200px;
   flex-direction: column;
-  /* min-height: 100px; */
   padding: 15px 15px;
+}
+div.display-wrapper{
+  color: #e2e2e2;
+  background: #b3b692;
+  box-shadow: inset 2px 2px 4px black;
 }
 div.display-result {
   display: flex;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  color: #e2e2e2;
-  background: #b3b692;
+  font-family: Electrolize;
+ 
   text-align: right;
   justify-content: flex-end;
 }
 .display-result > h3 {
   margin: 0;
   padding: 0;
-  font-size: 80px;
+  font-size: 65px;
   font-weight: 300;
   overflow-x: hidden;
   color: #000000;
@@ -91,13 +151,11 @@ div.display-history {
   display: flex;
   padding: 0;
   margin: 0;
+  margin-top: 5px;
   min-height: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
-  background: #b3b692;
   text-align: right;
   justify-content: flex-end;
+  overflow: hidden;
 }
 .display-history > p {
   margin: 0;
