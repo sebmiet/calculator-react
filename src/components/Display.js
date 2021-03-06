@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Display = ({ history, input, result, isResult }) => {
+export const Display = ({ history, result }) => {
   return (
     <div className="display-container">
       <div className="display-wrapper">
@@ -8,7 +8,7 @@ export const Display = ({ history, input, result, isResult }) => {
           <p>{history}</p>
         </div>
         <div className="display-result">
-          <h3>{isResult ? result : input}</h3>
+          <h3>{result}</h3>
         </div>
       </div>
     </div>

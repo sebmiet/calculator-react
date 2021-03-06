@@ -1,75 +1,77 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Display } from "./components/Display";
 import { Keyboard } from "./components/Keyboard";
 
 const App = () => {
-  const [isResult, setIsResult] = useState(true);
-  const [input, setInput] = useState(null);
+  const [prevNumber, setPrevNumber] = useState(null);
+  const [currentNumber, setCurrentNumber] = useState("");
   const [result, setResult] = useState(0);
+  const [operation, setOperation] = useState("");
   let [history, setHistory] = useState("");
 
-  const handleNumButtons = (value) => {
-    const newInput = [input, value];
-    setInput(parseFloat(newInput.join("")));
-    setHistory((history += value));
+  useEffect(() => {
+    if (result) {
+      setPrevNumber(result);
+    }
+    return () => {};
+  }, []);
+
+  const handleNumButtons = (number) => {
+    const newCurrentNumber = currentNumber.toString() + number.toString();
+    setCurrentNumber(parseFloat(newCurrentNumber));
+    setResult(newCurrentNumber);
+    setHistory((history += number));
   };
 
   const handleFunButtons = (key) => {
-    if (
-      history[history.length - 1] === "+" ||
-      history[history.length - 1] === "-" ||
-      history[history.length - 1] === "*" ||
-      history[history.length - 1] === "/"
-    ) {
-      return;
-    }
-    //setResult(parseFloat(input));
+    if (result) setCurrentNumber(result);
+    if (currentNumber === "") return;
+    if (prevNumber !== null && currentNumber !== "") return compute();
+    if (key === "CE") return handleAllClear();
+    if (key === "C") return handleClear();
+    setPrevNumber(currentNumber);
+    setOperation(key);
+    setCurrentNumber("");
     setHistory((history += key));
-    setInput("");
+  };
 
-    // const number = input;
-    // setResult(input);
-
-    switch (key) {
-      case "AC":
-        return handleAC();
+  const compute = () => {
+    switch (operation) {
+      case "CE":
+        return handleAllClear();
       case "C":
-        return setInput(null);
+        return handleClear();
       case "+":
-        return setResult(result + input);
+        return setResult(prevNumber + currentNumber);
       case "-":
-        return setResult((prevState) => prevState - input);
+        return setResult(prevNumber - currentNumber);
       case "*":
-        return setResult((prevState) => prevState * input);
+        return setResult(prevNumber * currentNumber);
       case "/":
-        return setResult((prevState) => prevState / input);
-      case "√":
-        return setResult((prevState) => Math.sqrt(prevState));
-      case "=":
-        return result;
+        return setResult(prevNumber / currentNumber);
       default:
-        return "foo";
+        return;
     }
   };
 
-  const handleAC = () => {
-    setInput(null);
+  const handleAllClear = () => {
+    setPrevNumber(null);
+    setCurrentNumber("");
+    setHistory("");
     setResult(0);
-    setHistory([]);
+  };
+
+  const handleClear = () => {
+    setCurrentNumber("");
+    setResult(0);
   };
 
   return (
     <div className="calculator-container">
-      <Display
-        isResult={isResult}
-        input={input}
-        result={result}
-        history={history}
-      />
+      <Display result={result} history={history} />
       <Keyboard
         handleFunButtons={handleFunButtons}
         handleNumButtons={handleNumButtons}
-        setIsResult={setIsResult}
       />
     </div>
   );

@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Electrolize&family=VT323&family=ZCOOL+QingKe+HuangYou&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Electrolize&family=VT323&family=ZCOOL+QingKe+HuangYou&display=swap");
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:Electrolize;
+  font-family: Electrolize;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -27,7 +27,7 @@ div#root {
 div.calculator-container {
   display: flex;
   flex-direction: column;
-  
+
   /* max-height: 70vh; */
   /* min-width: auto; */
   max-width: 444px;
@@ -49,11 +49,12 @@ div.keyboard-btns-num-constainer {
 }
 .keyboard-btns-fun-constainer {
   width: 172px;
-  display: flex; 
+  display: flex;
   flex-wrap: wrap;
 }
 
-.keyboard-btns-num,.keyboard-btns-fun {
+.keyboard-btns-num,
+.keyboard-btns-fun {
   width: 80px;
   height: 80px;
   background: rgb(78, 75, 95);
@@ -66,6 +67,7 @@ div.keyboard-btns-num-constainer {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .keyboard-btns-fun:nth-child(1) {
   background: rgb(219, 135, 0);
@@ -79,7 +81,7 @@ div.keyboard-btns-num-constainer {
 .keyboard-btns-fun:nth-child(2):hover {
   background: rgb(224, 0, 0);
 }
-.keyboard-btns-num-zero{
+.keyboard-btns-num-zero {
   min-width: 164px;
   min-height: 80px;
   background: rgb(78, 75, 95);
@@ -93,7 +95,7 @@ div.keyboard-btns-num-constainer {
   justify-content: center;
   align-items: center;
 }
-.keyboard-btns-fun-equals{
+.keyboard-btns-fun-equals {
   min-width: 164px;
   min-height: 80px;
   background: rgb(19, 128, 19);
@@ -105,11 +107,11 @@ div.keyboard-btns-num-constainer {
   transition: 0.9s;
   display: flex;
   flex-direction: column;
-  
+
   justify-content: center;
   align-items: center;
 }
-.keyboard-btns-fun-equals:hover{
+.keyboard-btns-fun-equals:hover {
   background: rgb(32, 153, 32);
 }
 button:hover,
@@ -117,7 +119,6 @@ div.keyboard-btns-num:hover,
 div.keyboard-btns-fun:hover,
 div.keyboard-btns-num-zero:hover {
   background: rgb(101, 96, 129);
-  
 }
 div.display-container {
   display: flex;
@@ -125,7 +126,7 @@ div.display-container {
   flex-direction: column;
   padding: 15px 15px;
 }
-div.display-wrapper{
+div.display-wrapper {
   color: #e2e2e2;
   background: #b3b692;
   box-shadow: inset 2px 2px 4px black;
@@ -135,7 +136,7 @@ div.display-result {
   padding: 0;
   margin: 0;
   font-family: Electrolize;
- 
+
   text-align: right;
   justify-content: flex-end;
 }
