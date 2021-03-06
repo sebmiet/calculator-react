@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Display = ({ history, result }) => {
+export const Display = ({ history, result, currentNumber}) => {
   return (
     <div className="display-container">
       <div className="display-wrapper">

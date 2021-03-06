@@ -17,7 +17,7 @@ export const Keyboard = ({ handleFunButtons, handleNumButtons }) => {
     );
   });
 
-  const funButtons = ["C", "CE", "*", "/", "-", "+", "="].map((btnValue) => {
+  const funButtons = ["C", "CE", "x", "÷", "-", "+", "="].map((btnValue) => {
     return (
       <div
         key={btnValue}

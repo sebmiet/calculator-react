@@ -81,6 +81,18 @@ div.keyboard-btns-num-constainer {
 .keyboard-btns-fun:nth-child(2):hover {
   background: rgb(224, 0, 0);
 }
+.keyboard-btns-fun:nth-child(3), 
+.keyboard-btns-fun:nth-child(4), 
+.keyboard-btns-fun:nth-child(5), 
+.keyboard-btns-fun:nth-child(6) {
+  background: rgb(55, 55, 56);
+}
+.keyboard-btns-fun:nth-child(3):hover, 
+.keyboard-btns-fun:nth-child(4):hover, 
+.keyboard-btns-fun:nth-child(5):hover, 
+.keyboard-btns-fun:nth-child(6):hover {
+  background: rgb(74, 74, 78);
+}
 .keyboard-btns-num-zero {
   min-width: 164px;
   min-height: 80px;
@@ -153,7 +165,7 @@ div.display-history {
   padding: 0;
   margin: 0;
   margin-top: 5px;
-  min-height: 16px;
+  min-height: 20px;
   text-align: right;
   justify-content: flex-end;
   overflow: hidden;
@@ -161,7 +173,7 @@ div.display-history {
 .display-history > p {
   margin: 0;
   padding: 0;
-  font-size: 12px;
+  font-size: 16px;
   color: #000000;
   overflow-x: hidden;
 }
