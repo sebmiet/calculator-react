@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Electrolize&family=VT323&family=ZCOOL+QingKe+HuangYou&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Electrolize&family=Fredoka+One&family=VT323&family=ZCOOL+QingKe+HuangYou&display=swap"); */
 
 body {
   margin: 0;
@@ -15,21 +15,12 @@ div#root {
   min-height: 100vh;
   min-width: auto;
   background: rgb(131, 58, 180);
-  background: radial-gradient(
-    circle,
-    rgba(131, 58, 180, 1) 0%,
-    rgba(209, 39, 83, 1) 32%,
-    rgba(253, 29, 29, 1) 50%,
-    rgba(252, 176, 69, 1) 100%
-  );
+  background: radial-gradient(rgb(63, 76, 192) 0%, rgb(103, 98, 105) 100%);
 }
 
 div.calculator-container {
   display: flex;
   flex-direction: column;
-
-  /* max-height: 70vh; */
-  /* min-width: auto; */
   max-width: 444px;
   background: #888888;
   border-radius: 8px;
@@ -58,7 +49,7 @@ div.keyboard-btns-num-constainer {
   width: 80px;
   height: 80px;
   background: rgb(78, 75, 95);
-  color: white;
+  color: #e2e2e2;
   font-size: 1.5rem;
   border-radius: 4px;
   margin: 2px;
@@ -81,15 +72,16 @@ div.keyboard-btns-num-constainer {
 .keyboard-btns-fun:nth-child(2):hover {
   background: rgb(224, 0, 0);
 }
-.keyboard-btns-fun:nth-child(3), 
-.keyboard-btns-fun:nth-child(4), 
-.keyboard-btns-fun:nth-child(5), 
+.keyboard-btns-fun:nth-child(3),
+.keyboard-btns-fun:nth-child(4),
+.keyboard-btns-fun:nth-child(5),
 .keyboard-btns-fun:nth-child(6) {
   background: rgb(55, 55, 56);
+  font-size: 2.5rem;
 }
-.keyboard-btns-fun:nth-child(3):hover, 
-.keyboard-btns-fun:nth-child(4):hover, 
-.keyboard-btns-fun:nth-child(5):hover, 
+.keyboard-btns-fun:nth-child(3):hover,
+.keyboard-btns-fun:nth-child(4):hover,
+.keyboard-btns-fun:nth-child(5):hover,
 .keyboard-btns-fun:nth-child(6):hover {
   background: rgb(74, 74, 78);
 }
@@ -97,7 +89,7 @@ div.keyboard-btns-num-constainer {
   min-width: 164px;
   min-height: 80px;
   background: rgb(78, 75, 95);
-  color: white;
+  color: #e2e2e2;
   font-size: 1.5rem;
   border-radius: 4px;
   margin: 2px;
@@ -106,25 +98,27 @@ div.keyboard-btns-num-constainer {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .keyboard-btns-fun-equals {
   min-width: 164px;
   min-height: 80px;
   background: rgb(19, 128, 19);
-  color: white;
-  font-size: 1.5rem;
+  color: #e2e2e2;
+  font-size: 2.5rem;
   border-radius: 4px;
   margin: 2px;
   box-shadow: 2px 2px 2px black;
   transition: 0.9s;
   display: flex;
   flex-direction: column;
-
+  cursor: pointer;
   justify-content: center;
   align-items: center;
 }
 .keyboard-btns-fun-equals:hover {
   background: rgb(32, 153, 32);
+  color: #e2e2e2;
 }
 button:hover,
 div.keyboard-btns-num:hover,
@@ -134,7 +128,7 @@ div.keyboard-btns-num-zero:hover {
 }
 div.display-container {
   display: flex;
-  max-height: 200px;
+  max-height: 150px;
   flex-direction: column;
   padding: 15px 15px;
 }
@@ -147,18 +141,21 @@ div.display-result {
   display: flex;
   padding: 0;
   margin: 0;
+  height: 70px;
   font-family: Electrolize;
-
+  letter-spacing: -3px;
   text-align: right;
   justify-content: flex-end;
+  align-items: flex-end;
 }
 .display-result > h3 {
   margin: 0;
+  margin-right: 3px;
   padding: 0;
-  font-size: 65px;
-  font-weight: 300;
+  font-size: 4rem;
+  font-weight: 800;
   overflow-x: hidden;
-  color: #000000;
+  color: #313131;
 }
 div.display-history {
   display: flex;
@@ -166,12 +163,16 @@ div.display-history {
   margin: 0;
   margin-top: 5px;
   min-height: 20px;
+  font-family: Electrolize;
+  /* letter-spacing: -1px; */
   text-align: right;
+  text-overflow: ellipsis;
   justify-content: flex-end;
   overflow: hidden;
 }
 .display-history > p {
   margin: 0;
+  margin-right: 3px;
   padding: 0;
   font-size: 16px;
   color: #000000;

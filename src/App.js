@@ -7,71 +7,80 @@ const App = () => {
   const [currentNumber, setCurrentNumber] = useState("");
   const [result, setResult] = useState(0);
   const [operation, setOperation] = useState("");
+  const [nextOperator, setNextOperator] = useState("");
   let [history, setHistory] = useState("");
 
   useEffect(() => {
-    console.log(`prevNumber = ${prevNumber}, ${operation} currentNumber=${currentNumber}, result=${result}`)
-  }, [operation, currentNumber, prevNumber, result]);
-  
+    if (nextOperator && nextOperator !== "=") {
+      setHistory(`${history} ${prevNumber.toString()}${nextOperator}`);
+      handleFunButtons(nextOperator);
+    }
+  }, [history, nextOperator, prevNumber]);
+
+  const handleClick = (val) => {
+    if (val === "CE") return handleAllClear();
+    if (val === "C") return handleClear();
+    if (isNaN(val) && val !== ".") {
+      if (!prevNumber && !currentNumber) return;
+      return handleFunButtons(val);
+    } else {
+      return handleNumButtons(val);
+    }
+  };
+
   const handleNumButtons = (number) => {
     if (number === "." && currentNumber.includes(".")) return;
-    const newCurrentNumber = currentNumber.toString() + number.toString();
-    console.log(newCurrentNumber);
+    if (prevNumber && !operation) {
+      setPrevNumber(null);
+      setHistory(`${history} | `);
+    }
+    const newCurrentNumber = currentNumber + number.toString();
     setCurrentNumber(newCurrentNumber);
     setResult(newCurrentNumber);
-    setHistory((history += number));
+    setHistory(`${(history += number)}`);
   };
-  
 
   const handleFunButtons = (key) => {
-    //currentNumber==="" ? setPrevNumber(parseFloat(result)) : setPrevNumber(parseFloat(currentNumber));
     setOperation(key);
-    //check if keys are clearing keys 
-    if (key === "CE") return handleAllClear();
-    if (key === "C") return handleClear();
-    if (prevNumber !== null && currentNumber !== "") return compute();
-    //if we have prevNumber and currentNumber it's time to do math ;)
-    //this 
-    setPrevNumber(currentNumber);
+    if (nextOperator) setNextOperator("");
+    if (prevNumber !== null && currentNumber !== "") {
+      setNextOperator(key);
+      return calculate();
+    }
+    prevNumber !== null
+      ? parseFloat(currentNumber)
+      : setPrevNumber(currentNumber);
     setCurrentNumber("");
-    setHistory((history += key));
+    setHistory(`${(history += key)}`);
   };
 
- 
-  const compute = () => {
+  const calculate = () => {
     const firstNumber = parseFloat(prevNumber);
-    const secondNumber = parseFloat(currentNumber)
+    const secondNumber = parseFloat(currentNumber);
     if (isNaN(firstNumber) || isNaN(secondNumber)) return;
-      let res = 0;
-      switch (operation) {
-        case "+":
-          res = firstNumber + secondNumber;
-          break;
-        case "-":
-          res = firstNumber - secondNumber;
-          break;
-        case "x":
-          res = firstNumber * secondNumber;
-          break;
-        case "÷":
-          res = firstNumber / secondNumber;
-          break;
-        default:
-          return;
-      }   
-      setResult(res);
-      setPrevNumber(null);
-      setCurrentNumber(res);
-      setOperation("");
-      setHistory(`${history} = ${res.toString()} `);
-  };
-
-  const continueOperation = (res) =>{
-    setResult(res);
-    setPrevNumber(null);
+    let res = 0;
+    switch (operation) {
+      case "+":
+        res = firstNumber + secondNumber;
+        break;
+      case "-":
+        res = firstNumber - secondNumber;
+        break;
+      case "×":
+        res = firstNumber * secondNumber;
+        break;
+      case "÷":
+        res = firstNumber / secondNumber;
+        break;
+      default:
+        return;
+    }
+    const fixedRes = parseFloat(res.toFixed(8));
+    setPrevNumber(fixedRes);
     setCurrentNumber("");
+    setResult(fixedRes);
     setOperation("");
-    setHistory(`${history} = ${res.toString()} `);
+    setHistory(`${history}=${fixedRes.toString()}`);
   };
 
   const handleAllClear = () => {
@@ -80,20 +89,24 @@ const App = () => {
     setHistory("");
     setResult(0);
     setOperation("");
+    setNextOperator("");
   };
 
   const handleClear = () => {
+    setPrevNumber(null);
     setCurrentNumber("");
     setResult(0);
     setOperation("");
+    setNextOperator("");
   };
 
   return (
     <div className="calculator-container">
-      <Display result={result} history={history} currentNumber={currentNumber}  />
+      <Display result={result} history={history} setResult={setResult} />
       <Keyboard
         handleFunButtons={handleFunButtons}
         handleNumButtons={handleNumButtons}
+        handleClick={handleClick}
       />
     </div>
   );
