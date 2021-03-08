@@ -1,16 +1,12 @@
 import React from "react";
 
-export const Keyboard = ({
-  handleFunButtons,
-  handleNumButtons,
-  handleClick,
-}) => {
+export const Keyboard = ({ handleClick }) => {
   const numButtons = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0, "."].map((btnValue) => {
     return (
       <div
         key={btnValue}
         onClick={() => {
-          handleClick(btnValue); //handleNumButtons(btnValue);
+          handleClick(btnValue);
         }}
         className={
           btnValue === 0 ? "keyboard-btns-num-zero" : "keyboard-btns-num"
@@ -26,7 +22,7 @@ export const Keyboard = ({
       <div
         key={btnValue}
         onClick={() => {
-          handleClick(btnValue); //handleFunButtons(btnValue);
+          handleClick(btnValue);
         }}
         className={
           btnValue === "=" ? "keyboard-btns-fun-equals" : "keyboard-btns-fun"

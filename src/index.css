@@ -1,5 +1,3 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Electrolize&family=Fredoka+One&family=VT323&family=ZCOOL+QingKe+HuangYou&display=swap"); */
-
 body {
   margin: 0;
   padding: 0;
@@ -21,7 +19,7 @@ div#root {
 div.calculator-container {
   display: flex;
   flex-direction: column;
-  max-width: 444px;
+  max-width: 400px;
   background: #888888;
   border-radius: 8px;
   box-shadow: 8px 8px 8px black;
@@ -34,20 +32,20 @@ div.keyboard-container {
   align-items: center;
 }
 div.keyboard-btns-num-constainer {
-  width: 252px;
+  width: 225px;
   display: flex;
   flex-wrap: wrap;
 }
 .keyboard-btns-fun-constainer {
-  width: 172px;
+  width: 170px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .keyboard-btns-num,
 .keyboard-btns-fun {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   background: rgb(78, 75, 95);
   color: #e2e2e2;
   font-size: 1.5rem;
@@ -86,8 +84,8 @@ div.keyboard-btns-num-constainer {
   background: rgb(74, 74, 78);
 }
 .keyboard-btns-num-zero {
-  min-width: 164px;
-  min-height: 80px;
+  min-width: 144px;
+  min-height: 70px;
   background: rgb(78, 75, 95);
   color: #e2e2e2;
   font-size: 1.5rem;
@@ -101,8 +99,8 @@ div.keyboard-btns-num-constainer {
   cursor: pointer;
 }
 .keyboard-btns-fun-equals {
-  min-width: 164px;
-  min-height: 80px;
+  min-width: 144px;
+  min-height: 70px;
   background: rgb(19, 128, 19);
   color: #e2e2e2;
   font-size: 2.5rem;
@@ -152,7 +150,7 @@ div.display-result {
   margin: 0;
   margin-right: 3px;
   padding: 0;
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 800;
   overflow-x: hidden;
   color: #313131;
@@ -164,7 +162,6 @@ div.display-history {
   margin-top: 5px;
   min-height: 20px;
   font-family: Electrolize;
-  /* letter-spacing: -1px; */
   text-align: right;
   text-overflow: ellipsis;
   justify-content: flex-end;
